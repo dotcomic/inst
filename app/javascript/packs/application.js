@@ -3,7 +3,9 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+require("vendor/assets/javascripts/bootstrap.min")
 require("@rails/ujs").start()
+require("vendor/assets/stylesheets/bootstrap.min")
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
