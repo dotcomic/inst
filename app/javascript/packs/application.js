@@ -6,7 +6,7 @@
 require("vendor/assets/javascripts/bootstrap.min")
 require("@rails/ujs").start()
 require("vendor/assets/stylesheets/bootstrap.min")
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
