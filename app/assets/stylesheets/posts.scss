@@ -1,7 +1,46 @@
+.inst-post {
+   margin-bottom: 15px;
+}
+
 .post-meta {
    background: #fff;
    text-align: left;
    font-weight: bold;
    padding: 10px;
-   border: 1px solid #999;
+   border: 1px solid #ddd;
+
+   img {
+      margin-right: 10px;
+   }
+}
+
+.post-details {
+   background: #fff;
+   padding: 12px;
+   border: 1px solid #ddd;
+}
+
+.account-summary {
+   text-align: left;
+   margin-bottom: 20px;
+}
+
+.follower-suggestions {
+   background: #fff;
+   padding: 10px;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+}
+
+.img-circle {
+   border-radius: 50%;
+}
+
+.profile-stats {
+   width: 120px;
+   float: left;
+}
+
+.profile-posts {
+   margin-top: 30px;
 }

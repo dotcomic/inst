@@ -36,7 +36,7 @@ gem 'carrierwave', '~> 2.1'
 gem 'fog', '~> 2.2'
 
 # adaptable interface
-gem 'rack', '~> 2.0.8'
+# gem 'rack', '~> 2.0.8'
 
 # image resizing
 gem 'mini_magick', '~> 4.11'
