@@ -3,9 +3,16 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("vendor/assets/javascripts/bootstrap.min")
+
+require("../../../vendor/assets/javascripts/bootstrap.min")
+require("../../../vendor/assets/javascripts/jquery.min")
+require("../../../vendor/assets/javascripts/fontawesome.min")
+require("../../../vendor/assets/javascripts/all.min")
 require("@rails/ujs").start()
-require("vendor/assets/stylesheets/bootstrap.min")
+require("../../../vendor/assets/stylesheets/bootstrap.min")
+require("../../../vendor/assets/stylesheets/fontawesome.min")
+require("../../../vendor/assets/stylesheets/solid.min")
+require("../../../vendor/assets/stylesheets/all.min")
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")

@@ -10,9 +10,14 @@
 
             <%= image_tag post.image.url, class:"img img-fluid"%>
 
+
             <div class="post-details">
-               <p><strong><%= post.total_likes%> likes</strong></p>
-               <p><strong><%= link_to post.account.username, profile_path(post.account.username), class:"text-dark" %></strong></p>
+               <div class="post-actions">
+                  <svg class="fas fa-heart like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-lg post-like" data-id="<%= post.id %>" ></svg>
+                  <svg class="fas fa-comment fa-lg post-comment"></svg>
+               </div>
+               <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count%> likes</strong></p>
+               <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class:"text-dark" %></strong></p>
                <%= simple_format post.description %>
 
                <p class="text-muted"><%= time_ago_in_words post.created_at%> ago</p>
@@ -25,7 +30,7 @@
          <div class="account-summary">
             <p>
                <%= link_to image_tag(current_account.image.thumb.url, class: "img-circle"), profile_path(current_account.username) if current_account.image.present? %>
-               <strong><%= current_account.username %></strong>
+               <strong><%= link_to current_account.username, profile_path(current_account.username), class: "text-dark" %></strong>
             </p>
             <p><%= current_account.full_name %></p>
          </div>

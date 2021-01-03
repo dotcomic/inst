@@ -44,3 +44,20 @@
 .profile-posts {
    margin-top: 30px;
 }
+
+.post-actions {
+   margin-bottom: 20px;
+   svg {
+      margin-right: 5px;
+      color: #ddd;
+      cursor: pointer;
+   }
+
+   svg:hover {
+      color: #555;
+   }
+
+   svg.active {
+      color: #444;
+   }
+}
