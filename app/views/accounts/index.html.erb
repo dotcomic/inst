@@ -14,13 +14,28 @@
             <div class="post-details">
                <div class="post-actions">
                   <svg class="fas fa-heart like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-lg post-like" data-id="<%= post.id %>" ></svg>
-                  <svg class="fas fa-comment fa-lg post-comment"></svg>
+                  <%= link_to post_path(post.id) do %>
+                     <svg class="fas fa-comment fa-lg post-comment"></svg>
+                  <% end %>
                </div>
                <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count%> likes</strong></p>
                <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class:"text-dark" %></strong></p>
                <%= simple_format post.description %>
 
                <p class="text-muted"><%= time_ago_in_words post.created_at%> ago</p>
+
+               <%= render "posts/comments", post: post %>
+            </div>
+            <div class="comment-box">
+               <%= form_for @comment do |f| %>
+                  <%= f. hidden_field :post_id, value: post.id %>
+                  <div class="input-group">
+                     <%= f. text_field :comment, placeholder: "Add a comment", class: "form-control post-comment" %>
+                  <div class="input-group-append">
+                     <%= f.submit "Post", class: "btn btn-outline-success btn-sm float-right" %>
+                  </div>
+                  </div>
+               <% end %>
             </div>
             </div>
          <% end %>
@@ -28,15 +43,16 @@
 
       <div class="col-4">
          <div class="account-summary">
-            <p>
-               <%= link_to image_tag(current_account.image.thumb.url, class: "img-circle"), profile_path(current_account.username) if current_account.image.present? %>
-               <strong><%= link_to current_account.username, profile_path(current_account.username), class: "text-dark" %></strong>
+            <p class="m-0">
+               <%= link_to image_tag(current_account.image.thumb.url, class: "img-circle float-left mr-3"), profile_path(current_account.username) if current_account.image.present? %>
+               <strong><%= link_to current_account.username, profile_path(current_account.username), class: "text-dark" %></strong><br />
+               <%= current_account.full_name %>
             </p>
-            <p><%= current_account.full_name %></p>
          </div>
          <div class="follower-suggestions">
             <%= link_to "View All", "#", class: "float-right text-dark" %>
             <p class="text-muted">Suggestions For You</p>
+            <%= render "accounts/follower_suggestions" %>
          </div>
       </div>
    </div>

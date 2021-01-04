@@ -1,14 +1,27 @@
 <div class="container">
    <div class="row">
       <div class="col-4">
-         <%= image_tag @account.image.url, width: "330px", class: "img-circle profile-pic" %>
+         <%= profile_picture @account, 330 %>
       </div>
       <div class="col-8 text-left">
-         <h1><%= @account.full_name %></h1>
-         <%= link_to "Edit Profile", edit_account_registration_path, class: "btn btn-secondary" %>
-         <div class="profile-stats"><%= @account.posts.count %> post</div>
-         <div class="profile-stats"><%= @account.total_followers %> followers</div>
-         <div class="profile-stats"><%= @account.total_following %> following</div>
+         <div class="row">
+            <div class="col-10">
+               <h1><%= @account.full_name %></h1>
+               <%= link_to "Edit Profile", edit_account_registration_path, class: "btn btn-outline-secondary float-right" if can_edit_profile?(@account.id) %>
+            </div>
+         </div>
+
+         <div class="row profile-stats">
+            <div class="col-4">
+               <%= @account.posts.count %> post
+            </div>
+            <div class="col-4">
+               <%= @account.total_followers %> followers
+            </div>
+            <div class="col-4">
+               <%= @account.total_following %> following
+            </div>
+         </div>
 
          <p><%= @account.full_name %></p>
          <%= simple_format @account.description %>
@@ -19,7 +32,7 @@
          <% @posts.each do |post| %>
             <div class="col-4">
                <div class="inst-post">
-                  <%= image_tag post.image.url, class:"img img-fluid"%>
+                  <%= link_to image_tag(post.image.url, class:"img img-fluid"), post_path(post)%>
                </div>
             </div>
          <% end %>

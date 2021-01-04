@@ -1,5 +1,8 @@
 $(function () {
    // jq load
+   $("#post-comment-icon").on("click", function () {
+      $("#comment_comment").focus();
+   });
    $(".post-like").on("click", function(){
       var post_id = $(this).data("id");
 
@@ -11,7 +14,6 @@ $(function () {
       })
    })
 });
-
 
 // function submitAjax() {
 //    var post_id = $(this).data("id");
